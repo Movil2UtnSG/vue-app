@@ -1,4 +1,5 @@
 <script setup>
+import Counter from './components/Counter.vue';
 import { ref, reactive, computed, watch } from 'vue';
 
 const contador = ref(0);
@@ -25,6 +26,10 @@ watch(()=> obj.edad, (newVal, oldVal) => {
   alert('Ya tienes 40 años');
  }
 });
+
+function mostrarMensajeDelHijo(){
+  alert('Hola');
+}
 </script>
 
 <template>
@@ -43,6 +48,12 @@ watch(()=> obj.edad, (newVal, oldVal) => {
     {{ i }}
   </li>
 </ul>
+<hr>
+<Counter titulo="Hola" valor-inicial="0" @hola="contador++"  />
+<Counter titulo="adios" valor-inicial="10" @hola="mostrarMensajeDelHijo"  />
+<Counter titulo="gol"  />
+<Counter titulo="aqui"  />
+
 </template>
 
 
